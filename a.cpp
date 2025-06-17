@@ -5,7 +5,7 @@ using namespace std;
 
 int main(){
     int Q,t,m,x;
-    cin >> Q;//kaaaa
+    cin >> Q;
     queue <int> temp;
     queue <int> ans;
     for(int i=0;i<Q;i++){
