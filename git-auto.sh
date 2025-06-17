@@ -1,29 +1,24 @@
 #!/bin/bash
+cd ~/VSCode  # ← 作業ディレクトリ
 
-cd ~/VSCode  # リポジトリのパスに合わせて変更
-
-echo "[Git] Pulling from remote..."
+echo "[Git] リモートから最新を取得中..."
 git pull --rebase
 
-echo "[Git] Adding changes..."
+echo "[Git] 変更をステージング中..."
 git add .
 
+# 変更があるか確認
 if git diff --cached --quiet; then
-    echo "[Git] 変更なし。コミットはスキップします。"
+    echo "[Git] 変更なし。コミットはスキップ。"
 else
-    # メッセージ入力を促す
-    read -p "コミットメッセージを入力してください（何も入力しなければ「自動更新」）: " msg
-
-    # 空欄なら自動メッセージをセット
-    if [ -z "$msg" ]; then
-        msg="自動更新 $(date '+%Y-%m-%d %H:%M:%S')"
+    read -p "コミットメッセージ（空なら自動で設定）: " msg
+    if [[ -z "$msg" ]]; then
+        msg="Automatic Update $(date '+%Y-%m-%d %H:%M:%S')"
     fi
-
-    echo "[Git] コミットメッセージ: $msg"
     git commit -m "$msg"
 fi
 
-echo "[Git] Pushing to GitHub..."
+echo "[Git] GitHubへプッシュ中..."
 git push
 
 echo "[Git] 完了！"
