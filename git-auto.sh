@@ -11,9 +11,9 @@ git add .
 if git diff --cached --quiet; then
     echo "[Git] 変更なし。コミットはスキップ。"
 else
-    read -p "コミットメッセージ（空なら自動で設定）: " msg
+    read -p "Commit Message: " msg
     if [[ -z "$msg" ]]; then
-        msg="Automatic Update $(date '+%Y-%m-%d %H:%M:%S')"
+        msg="自動更新 $(date '+%Y-%m-%d %H:%M:%S')"
     fi
     git commit -m "$msg"
 fi
