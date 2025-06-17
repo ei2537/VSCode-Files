@@ -1,4 +1,5 @@
 {
+    "version": "2.0.0",
     "tasks": [
         {
             "type": "cppbuild",
@@ -22,7 +23,12 @@
                 "isDefault": true
             },
             "detail": "デバッガーによって生成されたタスク。"
+        },
+        {
+            "label": "Run git-auto.sh",
+            "type": "shell",
+            "command": "${workspaceFolder}/git-auto.sh",
+            "problemMatcher": []
         }
-    ],
-    "version": "2.0.0"
+    ]
 }
