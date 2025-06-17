@@ -13,7 +13,7 @@ if git diff --cached --quiet; then
 else
     read -p "Commit Message: " msg
     if [[ -z "$msg" ]]; then
-        msg="自動更新 $(date '+%Y-%m-%d %H:%M:%S')"
+        msg="Auto Update $(date '+%Y-%m-%d %H:%M:%S')"
     fi
     git commit -m "$msg"
 fi
