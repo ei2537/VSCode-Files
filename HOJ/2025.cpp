@@ -1,7 +1,7 @@
 #include <iostream>
 #include <utility>
 #include <stdio.h>
-using namespace std;//aaaa
+using namespace std;
 
 int main(){
     pair <float,float> xy1;
