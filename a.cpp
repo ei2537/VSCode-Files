@@ -4,7 +4,7 @@
 using namespace std;
 
 int main(){
-    int Q,t,m,x;
+    int Q,t,m,x;//a
     cin >> Q;
     queue <int> temp;
     queue <int> ans;
