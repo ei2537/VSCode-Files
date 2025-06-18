@@ -1,24 +1,24 @@
 #!/bin/bash
 cd ~/VSCode  
 
-echo "[Git] リモートから最新を取得中..."
+echo "[Git] Getting the latest information from remote..."
 git pull --rebase
 
-echo "[Git] 変更をステージング中..."
+echo "[Git] Staging changes..."
 git add .
 
 # 変更があるか確認
 if git diff --cached --quiet; then
-    echo "[Git] 変更なし。コミットはスキップ。"
+    echo "[Git] No changes. Skip commit and push."
 else
-    read -p "Commit Message: " msg
+    read -p "Commit message: " msg
     if [[ -z "$msg" ]]; then
         msg="Auto Update $(date '+%Y-%m-%d %H:%M:%S')"
     fi
     git commit -m "$msg"
+
+    echo "[Git] Pushing to GitHub..."
+    git push
 fi
 
-echo "[Git] GitHubへプッシュ中..."
-git push
-
-echo "[Git] 完了！"
+echo "[Git] Done."
