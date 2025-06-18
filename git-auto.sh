@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ~/VSCode  # ← 作業ディレクトリ
+cd ~/VSCode  
 
 echo "[Git] リモートから最新を取得中..."
 git pull --rebase

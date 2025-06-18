@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/VSCode || exit 1   # 作業ディレクトリに移動（違うなら変えてね）
+cd ~/VSCode || exit 1  
 
 echo "[Git] Auto pull..."
 
