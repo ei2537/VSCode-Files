@@ -1,7 +1,7 @@
 #!/bin/bash
 cd ~/VSCode  
 
-echo "[Git] Getting the latest information from remote..."
+echo "[Git] Getting latest information from remote..."
 git pull --rebase
 
 echo "[Git] Staging changes..."
