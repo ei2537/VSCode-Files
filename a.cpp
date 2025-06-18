@@ -1,35 +1,28 @@
-#include <iostream>
-#include <queue>
-#include <algorithm>
-using namespace std;
+/*
+#!/bin/bash
+cd ~/VSCode  
 
-int main(){
-    int Q,t,m,x;
-    cin >> Q;
-    queue <int> temp;
-    queue <int> ans;
-    for(int i=0;i<Q;i++){
-        cin >> t;
-        if(t==1){
-            cin >> m;
-            temp.push(m); 
-        }else if(t==2){
-            cin >> x;
-            for(int j=0;j<x;j++){
-                ans.push(temp.front());
-                temp.pop();
-            }
-        }else if(t==3){
-            cin >> x;
-            for(int j=0;j<x;j++){
-                temp.push(temp.front());
-                temp.pop();
-            }
-        }
-    }
-    while ( ! ans.empty()){
-        cout << ans.front() << endl;
-        ans.pop();
-    }
-    return 0;
-}
+aaaaaaa
+
+echo "[Git] Getting latest information from remote..."
+git pull --rebase
+
+echo "[Git] Staging changes..."
+git add .
+
+# 変更があるか確認
+if git diff --cached --quiet; then
+    echo "[Git] No changes. Skip commit and push."
+else
+    read -p "Commit message: " msg
+    if [[ -z "$msg" ]]; then
+        msg="Auto Update $(date '+%Y-%m-%d %H:%M:%S')"
+    fi
+    git commit -m "$msg"
+
+    echo "[Git] Pushing to GitHub..."
+    git push
+fi
+
+echo "[Git] Done."
+*/
