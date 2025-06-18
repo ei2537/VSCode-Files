@@ -1,28 +1,3 @@
-/*
-#!/bin/bash
-cd ~/VSCode  
-
-aaaaaaa
-
-echo "[Git] Getting latest information from remote..."
-git pull --rebase
-
-echo "[Git] Staging changes..."
-git add .
-
-# 変更があるか確認
-if git diff --cached --quiet; then
-    echo "[Git] No changes. Skip commit and push."
-else
-    read -p "Commit message: " msg
-    if [[ -z "$msg" ]]; then
-        msg="Auto Update $(date '+%Y-%m-%d %H:%M:%S')"
-    fi
-    git commit -m "$msg"
-
-    echo "[Git] Pushing to GitHub..."
-    git push
-fi
-
-echo "[Git] Done."
-*/
+// ABC 303-A
+// ABC 306-A
+// HOJ 1976,1998
