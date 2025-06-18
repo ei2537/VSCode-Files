@@ -27,8 +27,8 @@ else
     fi
     git commit -m "$msg"
 
-    echo "[Git] GitHubへプッシュ中..."
+    echo "[Git] Pushing to GitHub..."
     git push
 fi
 
-echo "[Git] 完了！"
+echo "[Git] Done."
