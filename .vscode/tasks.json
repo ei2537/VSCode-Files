@@ -29,6 +29,15 @@
             "type": "shell",
             "command": "${workspaceFolder}/git-auto.sh",
             "problemMatcher": []
+        },
+        {
+            "label": "Git Auto Pull",
+            "type": "shell",
+            "command": "${workspaceFolder}/git-pull-auto.sh",
+            "problemMatcher": [],
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
         }
     ]
 }
