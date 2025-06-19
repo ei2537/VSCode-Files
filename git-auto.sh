@@ -1,23 +1,19 @@
 #!/bin/bash
-cd ~/VSCode  
+cd ~/VSCode || exit 1
 
 echo "[Git] Checking for changes..."
 git fetch
 
-# ワーキングツリーに変更があるか確認（ステージされていなくても）
 if git diff --quiet && git diff --cached --quiet; then
-    # 変更なし
     echo "[Git] No changes. Getting latest information from remote..."
     git pull --rebase
 else
-    # 変更あり
     echo "[Git] Detecting changes in the working tree. Skip pull."
 fi
 
 echo "[Git] Staging changes..."
 git add .
 
-# コミットするかチェック
 if git diff --cached --quiet; then
     echo "[Git] No changes. Skip commit and push."
 else
@@ -29,6 +25,9 @@ else
 
     echo "[Git] Pushing to GitHub..."
     git push
+
+    echo "[Git] Also pushing to Organization (ei2537-org)..."
+    git push org main
 fi
 
 echo "[Git] Done."
