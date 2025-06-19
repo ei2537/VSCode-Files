@@ -24,7 +24,7 @@ else
     git commit -m "$msg"
 
     echo "[Git] Pushing to GitHub..."
-    git push
+    git push --set-upstream origin main
 
     echo "[Git] Also pushing to Organization (ei2537-org)..."
     git push org main
