@@ -2,7 +2,7 @@
 #include <vector>
 #define endl "\n"
 using namespace std;
-//WTF
+
 int main(){
     int M,N,ans;
     cin >> M >> N;
