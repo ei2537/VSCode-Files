@@ -23,8 +23,12 @@ else
     read -p "Commit Message: " msg
     [[ -z "$msg" ]] && msg="Auto Update $(date '+%Y-%m-%d %H:%M:%S')"
     git commit -m "$msg"
+
     echo "[Git] Pushing to origin..."
-    git push
+    git push origin main
+
+    echo "[Git] Pushing to organization remote (org)..."
+    git push org main
 fi
 
 echo "[Git] Done."
