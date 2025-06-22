@@ -15,28 +15,28 @@ else
 fi
 
 #################################
-# Commit HOJ/AtCoder to org (and later also to origin)
+# Commit HOJ/AtCoder to org (and origin)
 #################################
 echo "[Git] Preparing changes to org..."
 
-git reset
+git reset 
 #適宜変更
 git add HOJ AtCoder README.md
 
 org_committed=false
 
 if git diff --cached --quiet; then
-    echo "[Git] No HOJ/AtCoder changes to commit."
+    echo "[Git] No changes to commit."
 else
     read -p "Commit Message (Org): " orgmsg
-    [[ -z "$orgmsg" ]] && orgmsg="Auto Update $(date '+%Y-%m-%d %H:%M:%S') [Org Only]"
+    [[ -z "$orgmsg" ]] && orgmsg="Auto Update $(date '+%Y-%m-%d %H:%M:%S')"
     git commit -m "$orgmsg"
     org_committed=true
 fi
 
 if [ "$org_committed" = true ]; then
-    echo "[Git] Pushing to org..."
-    git push org main
+    echo "[Git] Force pushing changes to org..."
+    git push -f org main
 
     echo "[Git] Also pushing same commit to origin..."
     git push origin main
