@@ -28,7 +28,7 @@ else
     git push origin main
 
     echo "[Git] Pushing to organization remote (org)..."
-    git push -f org main
+    git push  org main
 fi
 
 echo "[Git] Done."
