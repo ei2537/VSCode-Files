@@ -14,32 +14,50 @@ else
     echo "[Git] Detected changes in working tree. Skipping pull."
 fi
 
-echo "[Git] Staging ALL changes for personal Repository..."
+#################################
+# Commit HOJ/AtCoder to org (and later also to origin)
+#################################
+echo "[Git] Preparing changes to org..."
+
+git reset
+#適宜変更
+git add HOJ AtCoder README.md
+
+org_committed=false
+
+if git diff --cached --quiet; then
+    echo "[Git] No HOJ/AtCoder changes to commit."
+else
+    read -p "Commit Message (Org): " orgmsg
+    [[ -z "$orgmsg" ]] && orgmsg="Auto Update $(date '+%Y-%m-%d %H:%M:%S') [Org Only]"
+    git commit -m "$orgmsg"
+    org_committed=true
+fi
+
+if [ "$org_committed" = true ]; then
+    echo "[Git] Pushing to org..."
+    git push org main
+
+    echo "[Git] Also pushing same commit to origin..."
+    git push origin main
+fi
+
+####################################
+# Commit remaining personal changes to origin
+####################################
+echo "[Git] Preparing personal commit for origin..."
+
+git reset
 git add .
 
 if git diff --cached --quiet; then
-    echo "[Git] No changes to commit for personal Repository."
+    echo "[Git] No additional personal changes to push."
 else
-    read -p "Commit Message: " msg
+    read -p "Commit Message (Origin): " msg
     [[ -z "$msg" ]] && msg="Auto Update $(date '+%Y-%m-%d %H:%M:%S')"
     git commit -m "$msg"
     echo "[Git] Pushing to personal (origin)..."
     git push origin main
-fi
-
-echo "[Git] Preparing changes to org..."
-git reset
-# 適宜変更
-git add HOJ AtCoder README.md
-
-if git diff --cached --quiet; then
-    echo "[Git] No changes to push."
-else
-    read -p "Commit Message (org): " orgmsg
-    [[ -z "$orgmsg" ]] && orgmsg="Auto Update $(date '+%Y-%m-%d %H:%M:%S') [Org Only]"
-    git commit -m "$orgmsg"
-    echo "[Git] Pushing changes to org..."
-    git push org main
 fi
 
 echo "[Git] Done."
