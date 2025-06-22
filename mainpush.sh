@@ -34,7 +34,7 @@ git stash -u
 git checkout main
 git restore --staged . 2>/dev/null
 # HOJ と AtCoder/ABC だけ追加してpush
-git add HOJ AtCoder
+git add HOJ AtCoder README.md
 
 if git diff --cached --quiet; then
     echo "[Git] No HOJ/AtCoder changes to push."
