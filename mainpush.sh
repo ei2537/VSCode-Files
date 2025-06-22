@@ -14,37 +14,36 @@ else
     echo "[Git] Detected changes in working tree. Skipping pull."
 fi
 
-#################################
-# Commit HOJ/AtCoder to org (and origin)
-#################################
-echo "[Git] Preparing changes to org..."
+###############################################
+# Step 1: Create temp branch for org push only
+###############################################
+echo "[Git] Preparing isolated commit for org..."
 
-git reset 
-#適宜変更
+# 作業ブランチを作成
+git switch -c temp-org-branch || git switch temp-org-branch
+
+# すべてのステージングをリセットし、必要なファイルだけ add
+git reset
 git add HOJ AtCoder README.md
 
-org_committed=false
-
 if git diff --cached --quiet; then
-    echo "[Git] No changes to commit."
+    echo "[Git] No HOJ/AtCoder changes to push."
 else
     read -p "Commit Message (Org): " orgmsg
-    [[ -z "$orgmsg" ]] && orgmsg="Auto Update $(date '+%Y-%m-%d %H:%M:%S')"
+    [[ -z "$orgmsg" ]] && orgmsg="Auto Update $(date '+%Y-%m-%d %H:%M:%S') [Org Only]"
     git commit -m "$orgmsg"
-    org_committed=true
+    
+    echo "[Git] Force pushing isolated commit to org..."
+    git push -f org temp-org-branch:main
 fi
 
-if [ "$org_committed" = true ]; then
-    echo "[Git] Force pushing changes to org..."
-    git push -f org main
+# 元の main に戻る
+git switch main > /dev/null
+git branch -D temp-org-branch > /dev/null
 
-    echo "[Git] Also pushing same commit to origin..."
-    git push origin main
-fi
-
-####################################
-# Commit remaining personal changes to origin
-####################################
+#########################################
+# Step 2: Push personal changes to origin
+#########################################
 echo "[Git] Preparing personal commit for origin..."
 
 git reset
