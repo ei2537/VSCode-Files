@@ -1,5 +1,4 @@
 #include<stdio.h>
-
 long long Data[1000000]={};
 long long ANS[1000000]={};
 int main () {
