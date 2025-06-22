@@ -27,25 +27,19 @@ else
     git push origin main
 fi
 
-echo "[Git] Preparing to push to org..."
-
-git stash -u
-
-git checkout main
-git restore --staged . 2>/dev/null
-# HOJ と AtCoder/ABC だけ追加してpush
+echo "[Git] Preparing changes to org..."
+git reset
+# 適宜変更
 git add HOJ AtCoder README.md
 
 if git diff --cached --quiet; then
-    echo "[Git] No HOJ/AtCoder changes to push."
+    echo "[Git] No changes to push."
 else
-    read -p "Commit Message (Org): " orgmsg
+    read -p "Commit Message (org): " orgmsg
     [[ -z "$orgmsg" ]] && orgmsg="Auto Update $(date '+%Y-%m-%d %H:%M:%S') [Org Only]"
     git commit -m "$orgmsg"
-    echo "[Git] Pushing HOJ/AtCoder to org..."
+    echo "[Git] Pushing changes to org..."
     git push org main
 fi
-
-git stash pop
 
 echo "[Git] Done."
