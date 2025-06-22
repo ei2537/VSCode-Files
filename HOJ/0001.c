@@ -1,6 +1,6 @@
 #include<stdio.h>
-
+#define kaigyo \n
 int main () {
-    printf("Hello World!\n");
+    printf("Hello World!kaigyo");
     return 0;
 }
