@@ -1,6 +1,7 @@
 #include <iostream>
 #include <utility>
 #include <stdio.h>
+#define endl "\n"
 using namespace std;
 
 int main(){
