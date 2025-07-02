@@ -7,6 +7,6 @@ int main(){
     cin >> N;
     string S;
     cin >> S;
-    cout << S[S.size()-1] << endl;
+    cout << S[N-1] << endl;
     return 0;
 }

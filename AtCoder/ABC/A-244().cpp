@@ -3,9 +3,10 @@
 using namespace std;
 
 int main(){
+    int N;
+    cin >> N;
     string S;
     cin >> S;
-    if(S=="Hello,World!") cout << "AC";
-    else cout << "WA" << endl;
+    cout << S[S.size()-1] << endl;
     return 0;
 }
