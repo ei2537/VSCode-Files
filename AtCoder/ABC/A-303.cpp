@@ -9,8 +9,8 @@ int main() {
     cin >> S >> T;
     for(int i=0;i<N;i++){
         if(S[i]!=T[i]){
-            if(((S[i]=='l'||S[i]=='1')&&(T[i]=='l'||T[i]=='1'))) continue;
-            if(((S[i]=='0'||S[i]=='o')&&(T[i]=='0'||T[i]=='o'))) continue;
+            if((S[i]=='l'||S[i]=='1')&&(T[i]=='l'||T[i]=='1')) continue;
+            if((S[i]=='0'||S[i]=='o')&&(T[i]=='0'||T[i]=='o')) continue;
             Yn=0;
         }
     }
