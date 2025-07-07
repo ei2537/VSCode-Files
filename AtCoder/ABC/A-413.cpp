@@ -5,7 +5,7 @@ using namespace std;
 int main(){
     int N,M,A,ans=0;
     cin >> N >> M;
-    for( int i=0;i<N;i++){
+    for(int i=0;i<N;i++){
         cin >> A;
         ans+=A;
     }
