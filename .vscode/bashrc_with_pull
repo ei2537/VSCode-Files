@@ -1,3 +1,0 @@
-#!/bin/bash
-~/bin/git-pull-auto.sh   # ← これが自動でpullする部分
-exec bash                # ← 通常のbashプロンプトへ戻る
