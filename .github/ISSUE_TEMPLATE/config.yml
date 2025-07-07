@@ -1,13 +1,13 @@
 blank_issues_enabled: false
 contact_links:
   - name: 質問・相談
-    url: https://github.com/ei2537-org/VSCode-Files/discussions
-    about: バグ報告や機能リクエスト以外の質問・相談はDiscussionsをご利用ください。
+    url: https://twitter.com/ei2537
+    about: バグ報告や機能リクエスト以外の質問・相談はXのDMにて受け付けます。
 
 defaults:
   - template: "bug_report.yml"
     name: "🐛 バグ報告"
     about: "バグを報告する"
   - template: "feature_request.yml"
-    name: "💡 機能リクエスト"
-    about: "新機能のアイデアを提案する"
+    name: "💡 解答修正"
+    about: "問題の解答の修正"
