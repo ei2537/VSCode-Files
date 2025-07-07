@@ -36,9 +36,10 @@ body:
     validations:
       required: true
 
-  - type: dropdown
-    id: browsers
+  - type: textarea
+    id: etc
     attributes:
-      label: 発生した言語、環境、エラーログなど。
-      validations:
+      label: その他
+      description: 発生した言語、環境、エラーログなどを記述してください。
+    validations:
       required: true
