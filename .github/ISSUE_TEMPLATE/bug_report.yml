@@ -22,10 +22,9 @@ body:
       label: 再現手順
       description: バグを再現するための手順を記述してください
       placeholder: |
-        1. '...' に移動
-        2. '....' をクリック
-        3. '....' までスクロール
-        4. エラーが発生
+        1. '...' を入力
+        2. '....' が配列外参照になっている
+        3. エラーが発生
     validations:
       required: true
 
@@ -40,11 +39,6 @@ body:
   - type: dropdown
     id: browsers
     attributes:
-      label: 発生したブラウザ
-      multiple: true
-      options:
-        - Chrome
-        - Firefox
-        - Safari
-        - Edge
-        - その他
+      label: 発生した言語、環境、エラーログなど。
+      validations:
+      required: true
