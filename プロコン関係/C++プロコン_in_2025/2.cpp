@@ -1,7 +1,6 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 #define endl "\n"
 using namespace std;
-
 int main(){
     int M,D;
     cin >> M >> D;
