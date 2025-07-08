@@ -4,7 +4,7 @@ using namespace std;
 int main(){
     int Q;
     cin >> Q;
-    stack<string> Gans;
+    stack <string> Gans;
     for(int i=0;i<Q;i++){
         int type;
         cin >> type;

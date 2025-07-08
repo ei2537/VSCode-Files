@@ -17,7 +17,8 @@ int main(){
         }
     }
     sort(wasure.begin(),wasure.end());
-    for(string item:wasure){
+    for(int i=0;i<wasure.size();i++){
+        string item=wasure[i];
         cout << item << endl;
     }
     return 0;
