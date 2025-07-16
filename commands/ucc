@@ -1,0 +1,108 @@
+#!/bin/bash
+
+cache_dir=".ucc_cache"
+mkdir -p "$cache_dir"
+
+show_help() {
+    cat << EOF
+Usage: ucc <source-file>
+       ucc --cache-size    # キャッシュサイズ表示
+       ucc --clear-cache   # キャッシュ削除
+       ucc --cleanup       # 7日以上古いキャッシュ削除
+       ucc --help          # このヘルプ表示
+EOF
+}
+
+if [ $# -eq 0 ]; then
+    show_help
+    exit 1
+fi
+
+case "$1" in
+    --clear-cache)
+        rm -f "$cache_dir"/*
+        echo "[ucc] Cache cleared."
+        exit 0
+        ;;
+    --cache-size)
+        echo "[ucc] Cache size: $(du -sh "$cache_dir" | cut -f1)"
+        exit 0
+        ;;
+    --cleanup)
+        find "$cache_dir" -type f -mtime +7 -exec rm -f {} +
+        echo "[ucc] Old cache files cleaned."
+        exit 0
+        ;;
+    --help)
+        show_help
+        exit 0
+        ;;
+esac
+
+file="$1"
+if [ ! -f "$file" ]; then
+    echo "File not found: $file"
+    exit 1
+fi
+
+ext="${file##*.}"
+filename="$(basename "${file%.*}")"
+file_hash=$(echo "$file" | md5sum | awk '{print $1}')
+hash_file="$cache_dir/${filename}_${file_hash}.mtime"
+
+current_mtime=$(stat -c %Y "$file")
+last_mtime=""
+if [ -f "$hash_file" ]; then
+    read -r last_mtime < "$hash_file"
+fi
+
+compile_and_run() {
+    local exec_file=$1
+    shift
+    if "$@"; then
+        echo "(^^)"
+        "$exec_file"
+        echo "$current_mtime" > "$hash_file"
+    else
+        echo "[ucc] compilation failed."
+        exit 3
+    fi
+}
+
+tmp_exec="/tmp/ucc_exec_$$"
+
+case "$ext" in
+    cpp)
+        if [ "$current_mtime" = "$last_mtime" ]; then
+            echo "( °Д°)"
+            ./a.out
+        else
+            compile_and_run ./a.out g++ "$file" -o a.out
+        fi
+        ;;
+    c)
+        if [ "$current_mtime" = "$last_mtime" ]; then
+            echo "[ucc] Skip."
+            ./a.out
+        else
+            compile_and_run ./a.out gcc "$file" -o a.out
+        fi
+        ;;
+    rs)
+        rustc "$file" -o "$tmp_exec" && echo "[ucc] done." && "$tmp_exec"
+        rm -f "$tmp_exec"
+        ;;
+    go)
+        go run "$file"
+        ;;
+    py)
+        python3 "$file"
+        ;;
+    java)
+        javac "$file" && echo "[ucc] done." && java "$filename"
+        ;;
+    *)
+        echo "Unsupported file type: .$ext"
+        exit 2
+        ;;
+esac
