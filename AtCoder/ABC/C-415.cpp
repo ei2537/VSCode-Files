@@ -10,7 +10,6 @@ int main(){
         cin >> N;
         string s;
         cin >> s;
-        
         vector<bool> safe(1<<N,false);
         safe[0]=true;
         for(int j=1;j<(1<<N);j++){
