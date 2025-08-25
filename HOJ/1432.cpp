@@ -12,6 +12,11 @@ void Yn(bool b, const std::string& yes = "Yes", const std::string& no = "No") {
 }
 
 int main () {
-    
+    int a,b,c;
+    cin >> a >> b >> c;
+    bool meet=true;
+    if(a>c) meet=false;
+    else if(b<=c) meet=false;
+    Yn(meet,"1","0");
     return 0;
 }

@@ -12,6 +12,8 @@ void Yn(bool b, const std::string& yes = "Yes", const std::string& no = "No") {
 }
 
 int main () {
-    
+    int a,b;
+    cin >> a >> b;
+    cout << b-a << endl;
     return 0;
 }

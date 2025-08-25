@@ -12,6 +12,8 @@ void Yn(bool b, const std::string& yes = "Yes", const std::string& no = "No") {
 }
 
 int main () {
-    
+    int x,y,z;
+    cin >> x >> y >> z;
+    Yn(x+y<=z,"1","0");
     return 0;
 }

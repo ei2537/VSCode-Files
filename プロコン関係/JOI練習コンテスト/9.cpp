@@ -12,6 +12,9 @@ void Yn(bool b, const std::string& yes = "Yes", const std::string& no = "No") {
 }
 
 int main () {
-    
+    int a,b;
+    cin >> a >> b;
+    cout << max(a+b,a-b) << endl;
+    cout << min(a+b,a-b) << endl;
     return 0;
 }

@@ -12,6 +12,16 @@ void Yn(bool b, const std::string& yes = "Yes", const std::string& no = "No") {
 }
 
 int main () {
-    
+    int n;
+    string s;
+    cin >> n >> s;
+    for(int i=0;i<n;i++){
+        if(s[i]=='j'&&s[i+1]=='o'&&s[i+2]=='i'){
+            cout << "JOI";
+            i+=2;
+        }
+        else cout << s[i];
+    }
+    cout << endl;
     return 0;
 }

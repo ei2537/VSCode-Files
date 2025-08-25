@@ -5,13 +5,13 @@
 #define IMIN INT_MIN
 #define LLMAX LLONG_MAX
 #define LLMIN LLONG_MIN
-#define efor(i,n) for(int i=0;(n);i++)
 using namespace std;
-void Yn(bool b, const std::string& yes = "Yes", const std::string& no = "No") {
-    std::cout << (b ? yes : no) << '\n';
-}
+auto Yn=[](bool b){cout << (b?"Yes":"No") << '\n';};
 
 int main () {
-    
+    vector <int> a(3);
+    for(auto& i:a) cin >> i;
+    sort(a.begin(),a.end());
+    cout << a[1] << endl;
     return 0;
 }

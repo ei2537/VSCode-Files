@@ -12,6 +12,13 @@ void Yn(bool b, const std::string& yes = "Yes", const std::string& no = "No") {
 }
 
 int main () {
-    
+    int s,a,b;
+    cin >> s >> a >> b;
+    int ans=250;
+    while(a<s){
+        a+=b;
+        ans+=100;
+    }
+    cout << ans << endl;
     return 0;
 }

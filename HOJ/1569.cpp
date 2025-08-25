@@ -12,6 +12,15 @@ void Yn(bool b, const std::string& yes = "Yes", const std::string& no = "No") {
 }
 
 int main () {
-    
+    int a,b;
+    cin >> a >> b;
+    if(a+b<=12) cout << a+b << endl;
+    else{
+        int ans=a+b;
+        while(ans>12){
+            ans-=12;
+        }
+        cout << ans << endl;
+    }
     return 0;
 }

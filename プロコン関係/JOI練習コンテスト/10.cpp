@@ -12,6 +12,13 @@ void Yn(bool b, const std::string& yes = "Yes", const std::string& no = "No") {
 }
 
 int main () {
-    
+    int n,ans=0;
+    string s;
+    cin >> n >> s;
+    for(int i=0;i<n;i++){
+        if(i%2==0&&s[i]!='I') ans++;
+        else if(i%2==1&&s[i]!='O') ans++;
+    }
+    cout << ans << endl;
     return 0;
 }

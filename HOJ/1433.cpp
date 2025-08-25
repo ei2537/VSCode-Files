@@ -12,6 +12,15 @@ void Yn(bool b, const std::string& yes = "Yes", const std::string& no = "No") {
 }
 
 int main () {
-    
+    int n,i=0;
+    string s;
+    int step=0;
+    cin >> n >> s;
+    for(i=0;i<n;i++){
+        if(step==0&&s[i]=='I') step++;
+        else if(step==1&&s[i]=='O') step++;
+        else if(step==2&&s[i]=='I') step++;
+    }
+    Yn(step==3);
     return 0;
 }
