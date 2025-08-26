@@ -6,10 +6,10 @@ mkdir -p "$cache_dir"
 show_help() {
     cat << EOF
 Usage: ucc <source-file>
-       ucc --cache-size    # キャッシュサイズ表示
-       ucc --clear-cache   # キャッシュ削除
-       ucc --cleanup       # 7日以上古いキャッシュ削除
-       ucc --help          # このヘルプ表示
+        ucc --cache-size    # キャッシュサイズ表示
+        ucc --clear-cache   # キャッシュ削除
+        ucc --cleanup       # 7日以上古いキャッシュ削除
+        ucc --help          # このヘルプ表示
 EOF
 }
 
