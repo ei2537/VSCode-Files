@@ -6,11 +6,11 @@
 #define LLMAX LLONG_MAX
 #define LLMIN LLONG_MIN
 using namespace std;
-void Yn(bool b, const std::string& yes = "Yes", const std::string& no = "No") {
-    std::cout << (b ? yes : no) << '\n';
+void Yn(bool b,const std::string& yes="Yes",const std::string& no="No"){
+    std::cout << (b?yes:no) << '\n';
 }
 
-int main () {
+int main(){
     
     return 0;
 }
