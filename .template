@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 #define endl "\n"
 #define ll long long
 #define IMAX INT_MAX
