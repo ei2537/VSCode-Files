@@ -5,6 +5,8 @@
 #define IMIN INT_MIN
 #define LLMAX LLONG_MAX
 #define LLMIN LLONG_MIN
+#define ain(a) for(auto& i:a) cin >> i;
+#define aout(a) for(auto& i:a) cout << i;
 using namespace std;
 void Yn(bool b,const std::string& yes="Yes",const std::string& no="No"){
     std::cout << (b?yes:no) << '\n';
