@@ -7,7 +7,7 @@
 #define LLMIN LLONG_MIN
 using namespace std;
 void Yn(bool b,const std::string& yes="Yes",const std::string& no="No"){
-    std::cout << (b?yes:no) << '\n';
+    cout << (b?yes:no) << '\n';
 }
 
 int main() {
