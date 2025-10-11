@@ -10,7 +10,7 @@ using namespace std;
 void Yn(bool b,const string& yes="Yes",const string& no="No"){
     cout << (b?yes:no) << endl;
 }
- 
+
 int main() {
     int n;
     cin >> n;
