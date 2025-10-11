@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+#define endl "\n"
+#define ll long long
+#define IMAX INT_MAX
+#define IMIN INT_MIN
+#define LLMAX LLONG_MAX
+#define LLMIN LLONG_MIN
+using namespace std;
+void Yn(bool b,const std::string& yes="Yes",const std::string& no="No"){
+    std::cout << (b?yes:no) << '\n';
+}
+
+int main(){
+    string s;
+    cin >> s;
+    string t;
+    cin >> t;
+    s+=t;
+    cout << s.size() << endl;
+    return 0;
+}
