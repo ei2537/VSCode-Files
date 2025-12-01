@@ -6,8 +6,6 @@ using namespace std;
 int main(){
     int a,b,x;
     cin >> a >> b >> x;
-    int ans=a;
-    ans+=(b*x);
-    cout << ans << endl;
+    cout << a+b*x << endl;
     return 0;
 }
